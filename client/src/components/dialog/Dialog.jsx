@@ -13,6 +13,7 @@ export default function FormDialog(props) {
     name: props.title,
     cost: props.cost,
     category: props.category,
+    url:props.url
   });
 
   const handleChangeValues = (value) => {
@@ -32,6 +33,7 @@ export default function FormDialog(props) {
       name: editValues.name,
       cost: editValues.cost,
       category: editValues.category,
+      url: editValues.url
     }).then(() => {
       props.setListCard(
         props.listCard.map((value) => {
@@ -41,6 +43,7 @@ export default function FormDialog(props) {
                 name: editValues.name,
                 cost: editValues.cost,
                 category: editValues.category,
+                url: editValues.url
               }
             : value;
         })
@@ -104,6 +107,16 @@ export default function FormDialog(props) {
             id="category"
             label="Categoria"
             defaultValue={props.category}
+            type="text"
+            onChange={handleChangeValues}
+            fullWidth
+          />
+             <TextField
+            autoFocus
+            margin="dense"
+            id="url"
+            label="Url"
+            defaultValue={props.url}
             type="text"
             onChange={handleChangeValues}
             fullWidth

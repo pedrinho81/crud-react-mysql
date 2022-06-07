@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: rgb(15 23 42);
+}
 h1 {
   font-family: 'Tiro Gurmukhi', serif;
 }

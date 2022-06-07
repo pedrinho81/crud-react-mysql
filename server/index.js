@@ -20,10 +20,11 @@ app.post("/register", (req, res) => {
     const { name } = req.body
     const { cost } = req.body
     const { category } = req.body
+    const { url } = req.body
 
-    let SQL = "INSERT INTO games ( name, cost, category ) VALUES ( ?,?,? )";
-        db.query(SQL, [name, cost, category], (err, result) => {
-            if(err) console.log(err + "inferno")
+    let SQL = "INSERT INTO games ( name, cost, category, url ) VALUES ( ?,?,?,? )";
+        db.query(SQL, [name, cost, category, url], (err, result) => {
+            if(err) console.log(err)
                 else  res.send(result);
         });
     });
@@ -43,18 +44,19 @@ app.put("/edit", (req, res) => {
     const { name } = req.body;
     const { cost } = req.body;
     const { category } = req.body;
+    const { url } = req.body;
 
-    SQL = "UPDATE games SET name = ?, cost = ?, category = ? WHERE idgames = ?";
+    SQL = "UPDATE games SET name = ?, cost = ?, category = ?, url = ? WHERE id = ?";
 
-           db.query(SQL,[name, cost, category, id],(err,result) => {
-           if(err) res.send(err)
-                else res.send(result)
+           db.query(SQL,[name, cost, category, url, id],(err,result) => {
+           if(err) console.log(err)
+                else res.send(result) 
     })
 })
 
 app.delete("/delete/:id", (req, res) => {
     const { id } = req.params;
-    let SQL = "DELETE FROM games WHERE idgames = ?";
+    let SQL = "DELETE FROM games WHERE id = ?";
     db.query(SQL, id, (err, result) => {
       if(err) console.log(err);
         else res.send(result);
