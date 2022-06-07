@@ -1,8 +1,6 @@
 
 # Crud React & Mysql
 
-Landing Page criado com HTML,CSS,JS,BOOTSTRAP,SASS para uma maquiadora local (falta apenas informações pessoais da mesma)
-
 
 ## Rodando localmente
 
@@ -27,8 +25,5 @@ Clone o projeto
   Altere seu servidor de dados MYSQL no server/index.js
   $ npm install ou yarn install
   $ npm dev ou yarn dev
-
-  
-  
 ```
 
